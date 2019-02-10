@@ -24,5 +24,29 @@ namespace GraKK
         {
             InitializeComponent();
         }
+
+        private void Label_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            Label tlo = (Label)sender;
+            MessageBox.Show(tlo.Name);
+            //int arg = 3;
+            //switch (arg)
+            //{
+            //    case 1:
+            //        break;
+            //}                
+        }
+
+        private void Label_MouseEnter(object sender, MouseEventArgs e)
+        {
+            Label tlo = (Label)sender;
+            tlo.Background = System.Windows.Media.Brushes.White;
+        }
+
+        private void Label_MouseLeave(object sender, MouseEventArgs e)
+        {
+            Label tlo = (Label)sender;
+            tlo.Background = System.Windows.Media.Brushes.LightGreen;
+        }
     }
 }

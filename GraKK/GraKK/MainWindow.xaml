@@ -8,7 +8,7 @@
         Title="Circle - Cross" Height="450" Width="800">
     <Grid>
         <Grid Width="400" HorizontalAlignment="Left" Background="YellowGreen">
-            <Grid Height="300" Width="300" Background="Black">
+            <Grid Height="300" Width="300" Background="YellowGreen">
                 <Grid.RowDefinitions>
                     <RowDefinition />
                     <RowDefinition />
@@ -19,15 +19,15 @@
                     <ColumnDefinition />
                     <ColumnDefinition />
                 </Grid.ColumnDefinitions>
-                <Label Grid.Column="1" Grid.Row="1" Margin="1" Background="LightGreen"/>
-                <Label Grid.Column="0" Grid.Row="0" Margin="0,-1,1,1" Background="LightGreen"/>
-                <Label Grid.Column="0" Grid.Row="1" Margin="0,1,1,1" Background="LightGreen"/>
-                <Label Grid.Column="0" Grid.Row="2" Margin="0,1,1,0" Background="LightGreen"/>
-                <Label Grid.Column="1" Grid.Row="0" Margin="1,-1,1,1" Background="LightGreen"/>
-                <Label Grid.Column="1" Grid.Row="2" Margin="1,1,1,0" Background="LightGreen"/>
-                <Label Grid.Column="2" Grid.Row="0" Margin="1,-1,0,1" Background="LightGreen"/>
-                <Label Grid.Column="2" Grid.Row="1" Margin="1,1,0,1" Background="LightGreen"/>
-                <Label Grid.Column="2" Grid.Row="2" Margin="1,1,0,0" Background="LightGreen"/>
+                <Label x:Name="label5" Grid.Column="1" Grid.Row="1" Margin="1" Background="LightGreen" MouseLeftButtonUp="Label_MouseLeftButtonUp" MouseLeave="Label_MouseLeave" MouseEnter="Label_MouseEnter"/>
+                <Label x:Name="label1" Grid.Column="0" Grid.Row="0" Margin="0,-1,1,1" Background="LightGreen" MouseLeftButtonUp="Label_MouseLeftButtonUp" MouseEnter="Label_MouseEnter" MouseLeave="Label_MouseLeave"/>
+                <Label x:Name="label4" Grid.Column="0" Grid.Row="1" Margin="0,1,1,1" Background="LightGreen" MouseLeftButtonUp="Label_MouseLeftButtonUp" MouseLeave="Label_MouseLeave" MouseEnter="Label_MouseEnter"/>
+                <Label x:Name="label7" Grid.Column="0" Grid.Row="2" Margin="0,1,1,0" Background="LightGreen" MouseLeftButtonUp="Label_MouseLeftButtonUp" MouseLeave="Label_MouseLeave" MouseEnter="Label_MouseEnter"/>
+                <Label x:Name="label2" Grid.Column="1" Grid.Row="0" Margin="1,-1,1,1" Background="LightGreen" MouseLeftButtonUp="Label_MouseLeftButtonUp" MouseLeave="Label_MouseLeave" MouseEnter="Label_MouseEnter"/>
+                <Label x:Name="label8" Grid.Column="1" Grid.Row="2" Margin="1,1,1,0" Background="LightGreen" MouseLeftButtonUp="Label_MouseLeftButtonUp" MouseLeave="Label_MouseLeave" MouseEnter="Label_MouseEnter"/>
+                <Label x:Name="label3" Grid.Column="2" Grid.Row="0" Margin="1,-1,0,1" Background="LightGreen" MouseLeftButtonUp="Label_MouseLeftButtonUp" MouseLeave="Label_MouseLeave" MouseEnter="Label_MouseEnter"/>
+                <Label x:Name="label6" Grid.Column="2" Grid.Row="1" Margin="1,1,0,1" Background="LightGreen" MouseLeftButtonUp="Label_MouseLeftButtonUp" MouseLeave="Label_MouseLeave" MouseEnter="Label_MouseEnter"/>
+                <Label x:Name="label9" Grid.Column="2" Grid.Row="2" Margin="1,1,0,0" Background="LightGreen" MouseLeftButtonUp="Label_MouseLeftButtonUp" MouseLeave="Label_MouseLeave" MouseEnter="Label_MouseEnter"/>
             </Grid>
         </Grid>
         <Grid Width="400" HorizontalAlignment="Right" Background="Blue">
