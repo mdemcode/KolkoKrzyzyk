@@ -20,21 +20,36 @@ namespace GraKK
     /// </summary>
     public partial class MainWindow : Window
     {
+        SilnikGRY GraKK;
+
         public MainWindow()
         {
             InitializeComponent();
         }
 
+        private void OknoGry_Loaded(object sender, RoutedEventArgs e)
+        {
+            GraKK = new SilnikGRY();
+        }
+
         private void Label_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-            Label tlo = (Label)sender;
-            MessageBox.Show(tlo.Name);
-            //int arg = 3;
-            //switch (arg)
-            //{
-            //    case 1:
-            //        break;
-            //}                
+            Label pole = (Label)sender;
+            byte nrPola = Convert.ToByte(pole.Tag);
+            char znakPola = GraKK.Klikniecie(nrPola);
+
+            if (znakPola != 'n')
+            {
+                pole.Content = znakPola.ToString();
+                string czyKoniecRundy = GraKK.KoniecRundy();
+                if (czyKoniecRundy != "")
+                {
+                    if (czyKoniecRundy == "Remis") MessageBox.Show("Remis");
+                    else MessageBox.Show (string.Format("Wygrał {0}", czyKoniecRundy));
+                }
+                GraKK.ZmianaGracza();
+                //WyswietlAktywnego();
+            }
         }
 
         private void Label_MouseEnter(object sender, MouseEventArgs e)

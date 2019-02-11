@@ -1,13 +1,17 @@
-﻿<Window x:Class="GraKK.MainWindow"
+﻿<Window x:Name="OknoGry" x:Class="GraKK.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GraKK"
         mc:Ignorable="d"
-        Title="Circle - Cross" Height="450" Width="800">
+        Title="Circle - Cross" Height="450" Width="800" Loaded="OknoGry_Loaded">
     <Grid>
-        <Grid Width="400" HorizontalAlignment="Left" Background="YellowGreen">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="221*"/>
+            <ColumnDefinition Width="571*"/>
+        </Grid.ColumnDefinitions>
+        <Grid Width="400" HorizontalAlignment="Left" Background="YellowGreen" Grid.ColumnSpan="2">
             <Grid Height="300" Width="300" Background="YellowGreen">
                 <Grid.RowDefinitions>
                     <RowDefinition />
@@ -19,18 +23,18 @@
                     <ColumnDefinition />
                     <ColumnDefinition />
                 </Grid.ColumnDefinitions>
-                <Label x:Name="label5" Grid.Column="1" Grid.Row="1" Margin="1" Background="LightGreen" MouseLeftButtonUp="Label_MouseLeftButtonUp" MouseLeave="Label_MouseLeave" MouseEnter="Label_MouseEnter"/>
-                <Label x:Name="label1" Grid.Column="0" Grid.Row="0" Margin="0,-1,1,1" Background="LightGreen" MouseLeftButtonUp="Label_MouseLeftButtonUp" MouseEnter="Label_MouseEnter" MouseLeave="Label_MouseLeave"/>
-                <Label x:Name="label4" Grid.Column="0" Grid.Row="1" Margin="0,1,1,1" Background="LightGreen" MouseLeftButtonUp="Label_MouseLeftButtonUp" MouseLeave="Label_MouseLeave" MouseEnter="Label_MouseEnter"/>
-                <Label x:Name="label7" Grid.Column="0" Grid.Row="2" Margin="0,1,1,0" Background="LightGreen" MouseLeftButtonUp="Label_MouseLeftButtonUp" MouseLeave="Label_MouseLeave" MouseEnter="Label_MouseEnter"/>
-                <Label x:Name="label2" Grid.Column="1" Grid.Row="0" Margin="1,-1,1,1" Background="LightGreen" MouseLeftButtonUp="Label_MouseLeftButtonUp" MouseLeave="Label_MouseLeave" MouseEnter="Label_MouseEnter"/>
-                <Label x:Name="label8" Grid.Column="1" Grid.Row="2" Margin="1,1,1,0" Background="LightGreen" MouseLeftButtonUp="Label_MouseLeftButtonUp" MouseLeave="Label_MouseLeave" MouseEnter="Label_MouseEnter"/>
-                <Label x:Name="label3" Grid.Column="2" Grid.Row="0" Margin="1,-1,0,1" Background="LightGreen" MouseLeftButtonUp="Label_MouseLeftButtonUp" MouseLeave="Label_MouseLeave" MouseEnter="Label_MouseEnter"/>
-                <Label x:Name="label6" Grid.Column="2" Grid.Row="1" Margin="1,1,0,1" Background="LightGreen" MouseLeftButtonUp="Label_MouseLeftButtonUp" MouseLeave="Label_MouseLeave" MouseEnter="Label_MouseEnter"/>
-                <Label x:Name="label9" Grid.Column="2" Grid.Row="2" Margin="1,1,0,0" Background="LightGreen" MouseLeftButtonUp="Label_MouseLeftButtonUp" MouseLeave="Label_MouseLeave" MouseEnter="Label_MouseEnter"/>
+                <Label x:Name="label5" Grid.Column="1" Grid.Row="1" Margin="1" Background="LightGreen" MouseLeftButtonUp="Label_MouseLeftButtonUp" MouseLeave="Label_MouseLeave" MouseEnter="Label_MouseEnter" Content="" FontSize="72" FontWeight="Bold" HorizontalContentAlignment="Center" Tag="4"/>
+                <Label x:Name="label1" Grid.Column="0" Grid.Row="0" Margin="0,-1,1,1" Background="LightGreen" MouseLeftButtonUp="Label_MouseLeftButtonUp" MouseEnter="Label_MouseEnter" MouseLeave="Label_MouseLeave" Content="" FontSize="72" FontWeight="Bold" HorizontalContentAlignment="Center" Tag="0"/>
+                <Label x:Name="label4" Grid.Column="0" Grid.Row="1" Margin="0,1,1,1" Background="LightGreen" MouseLeftButtonUp="Label_MouseLeftButtonUp" MouseLeave="Label_MouseLeave" MouseEnter="Label_MouseEnter" Content="" FontSize="72" FontWeight="Bold" HorizontalContentAlignment="Center" Tag="3"/>
+                <Label x:Name="label7" Grid.Column="0" Grid.Row="2" Margin="0,1,1,0" Background="LightGreen" MouseLeftButtonUp="Label_MouseLeftButtonUp" MouseLeave="Label_MouseLeave" MouseEnter="Label_MouseEnter" Content="" FontSize="72" FontWeight="Bold" HorizontalContentAlignment="Center" Tag="6"/>
+                <Label x:Name="label2" Grid.Column="1" Grid.Row="0" Margin="1,-1,1,1" Background="LightGreen" MouseLeftButtonUp="Label_MouseLeftButtonUp" MouseLeave="Label_MouseLeave" MouseEnter="Label_MouseEnter" Content="" FontSize="72" FontWeight="Bold" HorizontalContentAlignment="Center" Tag="1"/>
+                <Label x:Name="label8" Grid.Column="1" Grid.Row="2" Margin="1,1,1,0" Background="LightGreen" MouseLeftButtonUp="Label_MouseLeftButtonUp" MouseLeave="Label_MouseLeave" MouseEnter="Label_MouseEnter" Content="" FontSize="72" FontWeight="Bold" HorizontalContentAlignment="Center" Tag="7"/>
+                <Label x:Name="label3" Grid.Column="2" Grid.Row="0" Margin="1,-1,0,1" Background="LightGreen" MouseLeftButtonUp="Label_MouseLeftButtonUp" MouseLeave="Label_MouseLeave" MouseEnter="Label_MouseEnter" Content="" FontSize="72" FontWeight="Bold" HorizontalContentAlignment="Center" Tag="2"/>
+                <Label x:Name="label6" Grid.Column="2" Grid.Row="1" Margin="1,1,0,1" Background="LightGreen" MouseLeftButtonUp="Label_MouseLeftButtonUp" MouseLeave="Label_MouseLeave" MouseEnter="Label_MouseEnter" Content="" FontSize="72" FontWeight="Bold" HorizontalContentAlignment="Center" Tag="5"/>
+                <Label x:Name="label9" Grid.Column="2" Grid.Row="2" Margin="1,1,0,0" Background="LightGreen" MouseLeftButtonUp="Label_MouseLeftButtonUp" MouseLeave="Label_MouseLeave" MouseEnter="Label_MouseEnter" Content="" FontSize="72" FontWeight="Bold" HorizontalContentAlignment="Center" Tag="8"/>
             </Grid>
         </Grid>
-        <Grid Width="400" HorizontalAlignment="Right" Background="Blue">
+        <Grid Width="400" HorizontalAlignment="Right" Background="Blue" Grid.Column="1">
 
         </Grid>
     </Grid>
