@@ -5,14 +5,14 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GraKK"
         mc:Ignorable="d"
-        Title="Circle - Cross" Height="450" Width="800" Loaded="OknoGry_Loaded">
+        Title="Circle - Cross" Height="450" Width="800" FontFamily="Comic Sans MS">
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="221*"/>
-            <ColumnDefinition Width="571*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
         </Grid.ColumnDefinitions>
-        <Grid Width="400" HorizontalAlignment="Left" Background="YellowGreen" Grid.ColumnSpan="2">
-            <Grid Height="300" Width="300" Background="YellowGreen">
+        <Grid Width="400" HorizontalAlignment="Left" Background="YellowGreen" Grid.Column="0">
+            <Grid x:Name="SiatkaPolaGry" Height="300" Width="300" Background="YellowGreen">
                 <Grid.RowDefinitions>
                     <RowDefinition />
                     <RowDefinition />
@@ -35,7 +35,7 @@
             </Grid>
         </Grid>
         <Grid Width="400" HorizontalAlignment="Right" Background="Blue" Grid.Column="1">
-
+            <Button x:Name="NowaGra" Width="100" Height="50" Content="Nowa Gra" FontSize="18" FontWeight="Bold" BorderBrush="Red" Click="NowaGra_Click" />
         </Grid>
     </Grid>
 

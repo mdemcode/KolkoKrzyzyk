@@ -27,13 +27,9 @@ namespace GraKK
             InitializeComponent();
         }
 
-        private void OknoGry_Loaded(object sender, RoutedEventArgs e)
-        {
-            GraKK = new SilnikGRY();
-        }
-
         private void Label_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
+            if (GraKK == null) return;
             Label pole = (Label)sender;
             byte nrPola = Convert.ToByte(pole.Tag);
             char znakPola = GraKK.Klikniecie(nrPola);
@@ -62,6 +58,23 @@ namespace GraKK
         {
             Label tlo = (Label)sender;
             tlo.Background = System.Windows.Media.Brushes.LightGreen;
+        }
+
+        private void NowaGra_Click(object sender, RoutedEventArgs e) => ResetGry();
+        
+        private void ResetGry()
+        {
+            this.label1.Content = "";
+            this.label2.Content = "";
+            this.label3.Content = "";
+            this.label4.Content = "";
+            this.label5.Content = "";
+            this.label6.Content = "";
+            this.label7.Content = "";
+            this.label8.Content = "";
+            this.label9.Content = "";
+            if (GraKK != null) GraKK = null;
+            GraKK = new SilnikGRY();
         }
     }
 }
