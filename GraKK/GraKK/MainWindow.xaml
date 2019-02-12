@@ -12,7 +12,15 @@
             <ColumnDefinition Width="1*"/>
         </Grid.ColumnDefinitions>
         <Grid Width="400" HorizontalAlignment="Left" Background="YellowGreen" Grid.Column="0">
-            <Grid x:Name="SiatkaPolaGry" Height="300" Width="300" Background="YellowGreen">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="8*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <Label x:Name="LabelAktywnyGracz"  Grid.Row="0" Content="Aktualny gracz:" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="50,0,0,0" FontSize="18" />
+            <Grid x:Name="SiatkaPolaGry" Height="300" Width="300" Background="YellowGreen" Grid.Row="1">
                 <Grid.RowDefinitions>
                     <RowDefinition />
                     <RowDefinition />
@@ -35,7 +43,19 @@
             </Grid>
         </Grid>
         <Grid Width="400" HorizontalAlignment="Right" Background="Blue" Grid.Column="1">
-            <Button x:Name="NowaGra" Width="100" Height="50" Content="Nowa Gra" FontSize="18" FontWeight="Bold" BorderBrush="Red" Click="NowaGra_Click" />
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+
+            <Button x:Name="ButtonNowaGra" Grid.Column="0" Grid.Row="2" Width="100" Height="50" Content="Nowa Gra" FontSize="18" FontWeight="Bold" BorderBrush="YellowGreen" Click="ButtonNowaGra_Click" />
+            <Button x:Name="ButtonKoniec" Grid.Column="1" Grid.Row="2" Width="100" Height="50" Content="Koniec" FontSize="18" FontWeight="Bold" BorderBrush="YellowGreen" Click="ButtonKoniec_Click"/>
+
         </Grid>
     </Grid>
 

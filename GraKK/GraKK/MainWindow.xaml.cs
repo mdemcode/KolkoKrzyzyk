@@ -20,7 +20,7 @@ namespace GraKK
     /// </summary>
     public partial class MainWindow : Window
     {
-        SilnikGRY GraKK;
+        SilnikGRY GraKK1;
 
         public MainWindow()
         {
@@ -29,22 +29,22 @@ namespace GraKK
 
         private void Label_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-            if (GraKK == null) return;
+            if (GraKK1 == null) return;
             Label pole = (Label)sender;
             byte nrPola = Convert.ToByte(pole.Tag);
-            char znakPola = GraKK.Klikniecie(nrPola);
+            char znakPola = GraKK1.Klikniecie(nrPola);
 
             if (znakPola != 'n')
             {
                 pole.Content = znakPola.ToString();
-                string czyKoniecRundy = GraKK.KoniecRundy();
+                string czyKoniecRundy = GraKK1.KoniecRundy();
                 if (czyKoniecRundy != "")
                 {
                     if (czyKoniecRundy == "Remis") MessageBox.Show("Remis");
                     else MessageBox.Show (string.Format("Wygrał {0}", czyKoniecRundy));
                 }
-                GraKK.ZmianaGracza();
-                //WyswietlAktywnego();
+                GraKK1.ZmianaGracza();
+                WyswietlAktywnego();
             }
         }
 
@@ -60,9 +60,9 @@ namespace GraKK
             tlo.Background = System.Windows.Media.Brushes.LightGreen;
         }
 
-        private void NowaGra_Click(object sender, RoutedEventArgs e) => ResetGry();
+        private void ButtonNowaGra_Click(object sender, RoutedEventArgs e) => NowaGra();
         
-        private void ResetGry()
+        private void NowaGra()
         {
             this.label1.Content = "";
             this.label2.Content = "";
@@ -73,8 +73,21 @@ namespace GraKK
             this.label7.Content = "";
             this.label8.Content = "";
             this.label9.Content = "";
-            if (GraKK != null) GraKK = null;
-            GraKK = new SilnikGRY();
+            
+            
+            if (GraKK1 != null) GraKK1 = null;
+            GraKK1 = new SilnikGRY();
+            WyswietlAktywnego();
+        }
+
+        private void ButtonKoniec_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
+
+        private void WyswietlAktywnego()
+        {
+            this.LabelAktywnyGracz.Content = string.Format("Aktualny gracz: {0}", GraKK1.AktywnyGracz().nazwa);
         }
     }
 }
