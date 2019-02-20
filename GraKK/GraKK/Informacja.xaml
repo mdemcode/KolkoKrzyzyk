@@ -6,10 +6,13 @@
         xmlns:local="clr-namespace:GraKK"
         mc:Ignorable="d"
         WindowStyle="None"
-        Background="Orange"
+        Background="{x:Null}"
         WindowStartupLocation="CenterOwner"
-        Height="200" Width="500">
+        AllowsTransparency="True"
+        Height="150" Width="300">
+
     <Grid>
-        <Label Content="" MouseUp="Label_MouseUp"/>
+        <Image   Source="chmurka.png" MouseUp="Image_MouseUp"/>
+        <Label x:Name="GrafikaInfo" MouseUp="Image_MouseUp" Content="Rozpoczyna Gracz 1" FontSize="18" FontFamily="Comic Sans MS" FontWeight="Bold" FontStyle="Italic" HorizontalAlignment="Center" VerticalAlignment="Center"/>
     </Grid>
 </Window>

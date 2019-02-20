@@ -1,17 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace GraKK
 {
@@ -20,13 +10,24 @@ namespace GraKK
     /// </summary>
     public partial class MainWindow : Window
     {
+        #region PolaKlasy
         SilnikGRY GraKK1;
+        //Gracz gracz1, gracz2;
+        #endregion
 
+        #region Inicjalizacja
         public MainWindow()
         {
             InitializeComponent();
-        }
+            //TBGracz1.Text = "Gracz1";
+            //TBGracz2.Text = "Gracz2";
 
+            //imieGracza1 = "Gracz1";
+            //imieGracza2 = "Gracz2";
+        }
+        #endregion
+
+        #region Obsługa Zdarzeń
         private void Label_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
             if (GraKK1 == null) return;
@@ -40,8 +41,10 @@ namespace GraKK
                 string czyKoniecRundy = GraKK1.KoniecRundy();
                 if (czyKoniecRundy != "")
                 {
-                    if (czyKoniecRundy == "Remis") MessageBox.Show("Remis");
-                    else MessageBox.Show (string.Format("Wygrał {0}", czyKoniecRundy));
+                    if (czyKoniecRundy == "Remis") WyswietlInfo("Remis");
+                    else WyswietlInfo (string.Format("Wygrał {0}", czyKoniecRundy));
+                    WyczyscPoleGry();
+                    // graKK1=>nowaRunda
                 }
                 GraKK1.ZmianaGracza();
                 WyswietlAktywnego();
@@ -61,8 +64,30 @@ namespace GraKK
         }
 
         private void ButtonNowaGra_Click(object sender, RoutedEventArgs e) => NowaGra();
-        
+        #endregion
+
+        #region Metody
         private void NowaGra()
+        {
+            WyczyscPoleGry();
+            if (GraKK1 != null) GraKK1 = null;
+            Gracz gracz1 = new Gracz(NadajImie("1 (X)"), true, 1, 'X');
+            Gracz gracz2 = new Gracz(NadajImie("2 (O)"), false, 5, 'O');
+            GraKK1 = new SilnikGRY(gracz1, gracz2);
+            TBGracz1.DataContext = gracz1;
+            TBGracz2.DataContext = gracz2;
+            WyswietlAktywnego();
+            WyswietlInfo(string.Format("Rozpoczyna gracz: {0}", GraKK1.AktywnyGracz().nazwa.ToString()));
+        }
+
+        private void WyswietlInfo(string tekstInformacji)
+        {
+            Informacja info = new Informacja {Owner = this};
+            info.GrafikaInfo.Content = string.Format(tekstInformacji);
+            info.ShowDialog();
+        }
+
+        private void WyczyscPoleGry()
         {
             this.label1.Content = "";
             this.label2.Content = "";
@@ -73,11 +98,6 @@ namespace GraKK
             this.label7.Content = "";
             this.label8.Content = "";
             this.label9.Content = "";
-            
-            
-            if (GraKK1 != null) GraKK1 = null;
-            GraKK1 = new SilnikGRY();
-            WyswietlAktywnego();
         }
 
         private void ButtonKoniec_Click(object sender, RoutedEventArgs e)
@@ -89,5 +109,15 @@ namespace GraKK
         {
             this.LabelAktywnyGracz.Content = string.Format("Aktualny gracz: {0}", GraKK1.AktywnyGracz().nazwa);
         }
+
+        private string NadajImie(string nr)
+        {
+            InputTextBox okienko = new InputTextBox(string.Format("Podaj imię gracza {0}", nr));
+            okienko.Owner = this;
+            okienko.ShowDialog();
+            return okienko.WprowdzonyTekst.Text;
+        }
+
+        #endregion
     }
 }

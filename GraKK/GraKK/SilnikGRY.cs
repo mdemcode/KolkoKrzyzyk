@@ -1,24 +1,24 @@
-﻿using System;
-using System.Windows;
-using System.Collections.Generic;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Windows;
+using System.Windows.Controls;
 
 namespace GraKK
 {
     class SilnikGRY
     {
-        public Gracz gracz1, gracz2;
+        public Gracz _gracz1, _gracz2;
         public byte[] poleGry;
         private byte ileRuchow;
 
-        public SilnikGRY()
+        public SilnikGRY(Gracz gracz1, Gracz gracz2)
         {
             poleGry = new byte[9] { 0, 0, 0, 0, 0, 0, 0, 0, 0 };
-            gracz1 = new Gracz("Gracz1", 0, true, 1, 'X');
-            gracz2 = new Gracz("Gracz2", 0, false, 5, 'O');
+            //string imieGracza1 = 
+            //gracz1 = new Gracz(0, true, 1, 'X');
+            //gracz2 = new Gracz(0, false, 5, 'O');
+            _gracz1 = gracz1;
+            _gracz2 = gracz2;
             ileRuchow = 0;
-            MessageBox.Show(string.Format("Rozpoczyna gracz: {0}", AktywnyGracz().nazwa));
+            //MessageBox.Show(string.Format("Rozpoczyna gracz: {0}", AktywnyGracz().nazwa));
         }
 
         public char Klikniecie(byte nrPola)
@@ -38,8 +38,8 @@ namespace GraKK
             string wygrany = "";
             bool war1 = Warunek1();
             bool war2 = Warunek2();
-            if (war1) wygrany = gracz1.nazwa;
-            if (war2) wygrany = gracz2.nazwa;
+            if (war1) wygrany = _gracz1.nazwa;
+            if (war2) wygrany = _gracz2.nazwa;
             if (ileRuchow == 9 && !war1 && !war2) wygrany = "Remis";
 
             return wygrany;
@@ -73,13 +73,13 @@ namespace GraKK
 
         public Gracz AktywnyGracz()
         {
-            return gracz1.aktywny ? gracz1 : gracz2;
+            return _gracz1.aktywny ? _gracz1 : _gracz2;
         }
 
         public void ZmianaGracza()
         {
-            gracz1.aktywny = gracz1.aktywny ? false : true;
-            gracz2.aktywny = gracz2.aktywny ? false : true;
+            _gracz1.aktywny = _gracz1.aktywny ? false : true;
+            _gracz2.aktywny = _gracz2.aktywny ? false : true;
         }
     }
 }

@@ -58,8 +58,15 @@
     <Compile Include="Informacja.xaml.cs">
       <DependentUpon>Informacja.xaml</DependentUpon>
     </Compile>
+    <Compile Include="InputTextBox.xaml.cs">
+      <DependentUpon>InputTextBox.xaml</DependentUpon>
+    </Compile>
     <Compile Include="SilnikGRY.cs" />
     <Page Include="Informacja.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="InputTextBox.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -102,6 +109,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="chmurka.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
