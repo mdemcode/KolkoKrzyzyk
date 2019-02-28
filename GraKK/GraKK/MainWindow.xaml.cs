@@ -8,57 +8,41 @@ namespace GraKK
     /// <summary>
     /// Logika interakcji dla klasy MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
-    {
+    public partial class MainWindow : Window {
+        
         #region PolaKlasy
         SilnikGRY GraKK1;
-        //Gracz gracz1, gracz2;
+        Gracz gracz1;
+        Gracz gracz2;
         #endregion
 
-        #region Inicjalizacja
-        public MainWindow()
-        {
+        #region Inicjalizacja (konstruktor)
+        public MainWindow() {
             InitializeComponent();
-            //TBGracz1.Text = "Gracz1";
-            //TBGracz2.Text = "Gracz2";
-
-            //imieGracza1 = "Gracz1";
-            //imieGracza2 = "Gracz2";
         }
         #endregion
 
         #region Obsługa Zdarzeń
-        private void Label_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
-        {
+        private void Label_MouseLeftButtonUp(object sender, MouseButtonEventArgs e) {
             if (GraKK1 == null) return;
             Label pole = (Label)sender;
             byte nrPola = Convert.ToByte(pole.Tag);
             char znakPola = GraKK1.Klikniecie(nrPola);
-
-            if (znakPola != 'n')
-            {
+            if (znakPola != 'n') {
                 pole.Content = znakPola.ToString();
                 string czyKoniecRundy = GraKK1.KoniecRundy();
-                if (czyKoniecRundy != "")
-                {
-                    if (czyKoniecRundy == "Remis") WyswietlInfo("Remis");
-                    else WyswietlInfo (string.Format("Wygrał {0}", czyKoniecRundy));
-                    WyczyscPoleGry();
-                    // graKK1=>nowaRunda
-                }
+                if (czyKoniecRundy != "") NowaRunda(czyKoniecRundy);
                 GraKK1.ZmianaGracza();
                 WyswietlAktywnego();
             }
         }
 
-        private void Label_MouseEnter(object sender, MouseEventArgs e)
-        {
+        private void Label_MouseEnter(object sender, MouseEventArgs e) {
             Label tlo = (Label)sender;
             tlo.Background = System.Windows.Media.Brushes.White;
         }
 
-        private void Label_MouseLeave(object sender, MouseEventArgs e)
-        {
+        private void Label_MouseLeave(object sender, MouseEventArgs e) {
             Label tlo = (Label)sender;
             tlo.Background = System.Windows.Media.Brushes.LightGreen;
         }
@@ -67,17 +51,27 @@ namespace GraKK
         #endregion
 
         #region Metody
-        private void NowaGra()
-        {
+
+        private void NowaGra() {
             WyczyscPoleGry();
-            if (GraKK1 != null) GraKK1 = null;
-            Gracz gracz1 = new Gracz(NadajImie("1 (X)"), true, 1, 'X');
-            Gracz gracz2 = new Gracz(NadajImie("2 (O)"), false, 5, 'O');
+            WyczyscObiekty();
+            gracz1 = new Gracz(NadajImie("1 (X)"), true, 1, 'X');
+            gracz2 = new Gracz(NadajImie("2 (O)"), false, 5, 'O');
             GraKK1 = new SilnikGRY(gracz1, gracz2);
-            TBGracz1.DataContext = gracz1;
-            TBGracz2.DataContext = gracz2;
+            PanelGracz1.DataContext = gracz1;
+            PanelGracz2.DataContext = gracz2;
+            //TBGracz1.DataContext = gracz1;
+            //TBGracz2.DataContext = gracz2;
+            //TBpktGracz1.DataContext = gracz1;
+            //TBpktGracz2.DataContext = gracz2;
             WyswietlAktywnego();
-            WyswietlInfo(string.Format("Rozpoczyna gracz: {0}", GraKK1.AktywnyGracz().nazwa.ToString()));
+            WyswietlInfo(string.Format("Rozpoczyna gracz: {0}", GraKK1.AktywnyGracz().nazwa));
+        }
+
+        private void NowaRunda(string wynik) {
+            if (wynik == "Remis") WyswietlInfo("Remis");
+            else WyswietlInfo(string.Format("Wygrał {0}", wynik));
+            WyczyscPoleGry();
         }
 
         private void WyswietlInfo(string tekstInformacji)
@@ -110,14 +104,18 @@ namespace GraKK
             this.LabelAktywnyGracz.Content = string.Format("Aktualny gracz: {0}", GraKK1.AktywnyGracz().nazwa);
         }
 
-        private string NadajImie(string nr)
-        {
+        private string NadajImie(string nr) {
             InputTextBox okienko = new InputTextBox(string.Format("Podaj imię gracza {0}", nr));
             okienko.Owner = this;
             okienko.ShowDialog();
             return okienko.WprowdzonyTekst.Text;
         }
 
+        private void WyczyscObiekty() {
+            if (GraKK1 != null) GraKK1 = null;
+            if (gracz1 != null) gracz1 = null;
+            if (gracz2 != null) gracz2 = null;
+        }
         #endregion
     }
 }
