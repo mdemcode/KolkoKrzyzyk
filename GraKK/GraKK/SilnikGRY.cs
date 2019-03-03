@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using System;
+using System.Windows;
 
 namespace GraKK {
 
@@ -8,6 +9,7 @@ namespace GraKK {
         public Gracz _gracz1, _gracz2;
         public byte[] poleGry;
         private byte ileRuchow;
+        private byte ktoZaczyna;
         #endregion
 
         #region KONSTRUKTOR
@@ -16,10 +18,25 @@ namespace GraKK {
             _gracz1 = gracz1;
             _gracz2 = gracz2;
             ileRuchow = 0;
+            LosujZaczynajacego();
         }
         #endregion
 
         #region METODY
+        public void LosujZaczynajacego() {
+            Random losuj = new Random();
+            if (losuj.NextDouble() > 0.5) {
+                _gracz1.aktywny = true;
+                _gracz2.aktywny = false;
+                ktoZaczyna = 1;
+            }
+            else {
+                _gracz1.aktywny = false;
+                _gracz2.aktywny = true;
+                ktoZaczyna = 2;
+            }
+        }
+
         public char Klikniecie(byte nrPola) {
             if (poleGry[nrPola] > 0) {
                 MessageBox.Show("To pole jest już zajęte!");
@@ -46,6 +63,7 @@ namespace GraKK {
             if (wygrany != "") {
                 poleGry = new byte[9] { 0, 0, 0, 0, 0, 0, 0, 0, 0 };
                 ileRuchow = 0;
+                ZmianaZaczynajacego();
             }
             return wygrany;
         }
@@ -81,6 +99,19 @@ namespace GraKK {
         public void ZmianaGracza() {
             _gracz1.aktywny = _gracz1.aktywny ? false : true;
             _gracz2.aktywny = _gracz2.aktywny ? false : true;
+        }
+
+        private void ZmianaZaczynajacego() {
+            if (ktoZaczyna==1) {
+                ktoZaczyna = 2;
+                _gracz1.aktywny = false;
+                _gracz2.aktywny = true;
+            }
+            else {
+                ktoZaczyna = 1;
+                _gracz1.aktywny = true;
+                _gracz2.aktywny = false;
+            }
         }
         #endregion
     }

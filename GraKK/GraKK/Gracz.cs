@@ -21,10 +21,9 @@ namespace GraKK {
         #endregion
 
         #region KONSTRUKTOR
-        public Gracz(string imie, bool aktywnosc, byte numer, char litera) {
+        public Gracz(string imie, byte numer, char litera) {   
             this.nazwa = imie;
             this.ileZwyciestw = 0;
-            this.aktywny = aktywnosc;
             this.liczba = numer;
             this.znak = litera;
         }

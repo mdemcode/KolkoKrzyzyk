@@ -7,21 +7,19 @@ namespace GraKK
 {
     public partial class MainWindow : Window {
         
-        #region PolaKlasy
+        #region POLA KLASY
         SilnikGRY GraKK1;
         Gracz gracz1;
         Gracz gracz2;
         #endregion
 
-        #region Inicjalizacja (konstruktor)
+        #region KONSTRUKTOR (Inicjalizacja)
         public MainWindow() {
             InitializeComponent();
-            PanelGracz1.DataContext = gracz1;
-            PanelGracz2.DataContext = gracz2;
         }
         #endregion
 
-        #region Obsługa Zdarzeń
+        #region OBSŁUGA ZDARZEŃ
         private void Label_MouseLeftButtonUp(object sender, MouseButtonEventArgs e) {
             if (GraKK1 == null) return;
             Label pole = (Label)sender;
@@ -53,12 +51,12 @@ namespace GraKK
         }
         #endregion
 
-        #region Metody
+        #region METODY
         private void NowaGra() {
             WyczyscPoleGry();
             WyczyscObiekty();
-            gracz1 = new Gracz(NadajImie("1 (X)"), true, 1, 'X');
-            gracz2 = new Gracz(NadajImie("2 (O)"), false, 5, 'O');
+            gracz1 = new Gracz(NadajImie("1 (X)"), 1, 'X');
+            gracz2 = new Gracz(NadajImie("2 (O)"), 5, 'O');
             GraKK1 = new SilnikGRY(gracz1, gracz2);
             PanelGracz1.DataContext = gracz1;
             PanelGracz2.DataContext = gracz2;
@@ -70,6 +68,8 @@ namespace GraKK
             if (wynik == "Remis") WyswietlInfo("Remis");
             else WyswietlInfo(string.Format("Wygrał gracz {0}", wynik));
             WyczyscPoleGry();
+            WyswietlAktywnego();
+            WyswietlInfo(string.Format("Rozpoczyna gracz: {0}", GraKK1.AktywnyGracz().nazwa));
         }
 
         private void WyswietlInfo(string tekstInformacji) {
