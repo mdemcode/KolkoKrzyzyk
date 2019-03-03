@@ -58,12 +58,12 @@
 
             <Label  Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="0" FontSize="24" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold" FontStyle="Italic">PUNKTACJA</Label>
             <StackPanel x:Name="PanelGracz1"  Grid.Column="0" Grid.Row="1" Grid.RowSpan="2">
-                <TextBlock x:Name="TBGracz1" FontSize="18" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold" FontStyle="Italic" Margin="5" Text="{Binding nazwa}"></TextBlock>
-                <TextBlock x:Name="TBpktGracz1" FontSize="48" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold" FontStyle="Italic" Margin="5" Text="{Binding ileZwyciestw}"></TextBlock>
+                <TextBlock x:Name="TBGracz1" FontSize="18" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold" FontStyle="Italic" Margin="5" Text="{Binding nazwa, Mode=OneWay}"></TextBlock>
+                <TextBlock x:Name="TBpktGracz1" FontSize="48" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold" FontStyle="Italic" Margin="5" Text="{Binding IleZwyciestw, Mode=OneWay}"></TextBlock>
             </StackPanel>
             <StackPanel x:Name="PanelGracz2" Grid.Column="1" Grid.Row="1" Grid.RowSpan="2">
                 <TextBlock x:Name="TBGracz2" FontSize="18" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold" FontStyle="Italic" Margin="5" Text="{Binding nazwa}"></TextBlock>
-                <TextBlock x:Name="TBpktGracz2" FontSize="48" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold" FontStyle="Italic" Margin="5" Text="{Binding ileZwyciestw}"></TextBlock>
+                <TextBlock x:Name="TBpktGracz2" FontSize="48" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold" FontStyle="Italic" Margin="5" Text="{Binding IleZwyciestw}"></TextBlock>
             </StackPanel>
             <Button x:Name="ButtonNowaGra" Grid.Column="0" Grid.Row="3" Width="100" Height="50" Content="Nowa Gra" FontSize="18" FontWeight="Bold" BorderBrush="YellowGreen" Click="ButtonNowaGra_Click"/>
             <Button x:Name="ButtonKoniec" Grid.Column="1" Grid.Row="3" Width="100" Height="50" Content="Koniec" FontSize="18" FontWeight="Bold" BorderBrush="YellowGreen" Click="ButtonKoniec_Click"/>

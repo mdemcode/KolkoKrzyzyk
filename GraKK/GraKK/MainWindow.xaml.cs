@@ -5,9 +5,6 @@ using System.Windows.Input;
 
 namespace GraKK
 {
-    /// <summary>
-    /// Logika interakcji dla klasy MainWindow.xaml
-    /// </summary>
     public partial class MainWindow : Window {
         
         #region PolaKlasy
@@ -19,6 +16,8 @@ namespace GraKK
         #region Inicjalizacja (konstruktor)
         public MainWindow() {
             InitializeComponent();
+            PanelGracz1.DataContext = gracz1;
+            PanelGracz2.DataContext = gracz2;
         }
         #endregion
 
@@ -48,10 +47,13 @@ namespace GraKK
         }
 
         private void ButtonNowaGra_Click(object sender, RoutedEventArgs e) => NowaGra();
+
+        private void ButtonKoniec_Click(object sender, RoutedEventArgs e) {
+            this.Close();
+        }
         #endregion
 
         #region Metody
-
         private void NowaGra() {
             WyczyscPoleGry();
             WyczyscObiekty();
@@ -60,29 +62,23 @@ namespace GraKK
             GraKK1 = new SilnikGRY(gracz1, gracz2);
             PanelGracz1.DataContext = gracz1;
             PanelGracz2.DataContext = gracz2;
-            //TBGracz1.DataContext = gracz1;
-            //TBGracz2.DataContext = gracz2;
-            //TBpktGracz1.DataContext = gracz1;
-            //TBpktGracz2.DataContext = gracz2;
             WyswietlAktywnego();
             WyswietlInfo(string.Format("Rozpoczyna gracz: {0}", GraKK1.AktywnyGracz().nazwa));
         }
 
         private void NowaRunda(string wynik) {
             if (wynik == "Remis") WyswietlInfo("Remis");
-            else WyswietlInfo(string.Format("Wygrał {0}", wynik));
+            else WyswietlInfo(string.Format("Wygrał gracz {0}", wynik));
             WyczyscPoleGry();
         }
 
-        private void WyswietlInfo(string tekstInformacji)
-        {
+        private void WyswietlInfo(string tekstInformacji) {
             Informacja info = new Informacja {Owner = this};
             info.GrafikaInfo.Content = string.Format(tekstInformacji);
             info.ShowDialog();
         }
 
-        private void WyczyscPoleGry()
-        {
+        private void WyczyscPoleGry() {
             this.label1.Content = "";
             this.label2.Content = "";
             this.label3.Content = "";
@@ -94,13 +90,7 @@ namespace GraKK
             this.label9.Content = "";
         }
 
-        private void ButtonKoniec_Click(object sender, RoutedEventArgs e)
-        {
-            this.Close();
-        }
-
-        private void WyswietlAktywnego()
-        {
+        private void WyswietlAktywnego() {
             this.LabelAktywnyGracz.Content = string.Format("Aktualny gracz: {0}", GraKK1.AktywnyGracz().nazwa);
         }
 

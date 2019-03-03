@@ -11,7 +11,7 @@
         FontFamily="Comic Sans Ms"
         mc:Ignorable="d"
         Title="InputTextBox" Height="120" Width="500">
-    <Grid>
+    <Grid KeyUp="Grid_KeyUp">
         <StackPanel FocusManager.FocusedElement="{Binding ElementName=WprowdzonyTekst}">
             <Label x:Name="TekstZachety" FontSize="18" HorizontalAlignment="Center">Podaj imię gracza</Label>
             <TextBox x:Name="WprowdzonyTekst" Focusable="True"  Height="40" Width="350" FontSize="20" FontWeight="Bold"></TextBox>

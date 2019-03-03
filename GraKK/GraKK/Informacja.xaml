@@ -12,7 +12,7 @@
         Height="150" Width="300">
 
     <Grid>
-        <Image   Source="chmurka.png" MouseUp="Image_MouseUp"/>
+        <Image x:Name="tlo" Source="chmurka.png" MouseUp="Image_MouseUp"/>
         <Label x:Name="GrafikaInfo" MouseUp="Image_MouseUp" Content="Rozpoczyna Gracz 1" FontSize="18" FontFamily="Comic Sans MS" FontWeight="Bold" FontStyle="Italic" HorizontalAlignment="Center" VerticalAlignment="Center"/>
     </Grid>
 </Window>

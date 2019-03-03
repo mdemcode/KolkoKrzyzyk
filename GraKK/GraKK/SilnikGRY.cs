@@ -1,5 +1,4 @@
 ﻿using System.Windows;
-using System.Windows.Controls;
 
 namespace GraKK {
 
@@ -11,13 +10,16 @@ namespace GraKK {
         private byte ileRuchow;
         #endregion
 
+        #region KONSTRUKTOR
         public SilnikGRY(Gracz gracz1, Gracz gracz2) {
             poleGry = new byte[9] { 0, 0, 0, 0, 0, 0, 0, 0, 0 };
             _gracz1 = gracz1;
             _gracz2 = gracz2;
             ileRuchow = 0;
         }
+        #endregion
 
+        #region METODY
         public char Klikniecie(byte nrPola) {
             if (poleGry[nrPola] > 0) {
                 MessageBox.Show("To pole jest już zajęte!");
@@ -34,11 +36,11 @@ namespace GraKK {
             bool war2 = Warunek2();
             if (war1) {
                 wygrany = _gracz1.nazwa;
-                _gracz1.ileZwyciestw += 1;
+                _gracz1.IleZwyciestw += 1;
             }
             if (war2) {
                 wygrany = _gracz2.nazwa;
-                _gracz2.ileZwyciestw += 1;
+                _gracz2.IleZwyciestw += 1;
             }
             if (ileRuchow == 9 && !war1 && !war2) wygrany = "Remis";
             if (wygrany != "") {
@@ -80,5 +82,6 @@ namespace GraKK {
             _gracz1.aktywny = _gracz1.aktywny ? false : true;
             _gracz2.aktywny = _gracz2.aktywny ? false : true;
         }
+        #endregion
     }
 }

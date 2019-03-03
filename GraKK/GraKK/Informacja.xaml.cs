@@ -1,19 +1,17 @@
 ﻿using System.Windows;
+using System.Windows.Input;
 
-namespace GraKK
-{
-    /// <summary>
-    /// Logika interakcji dla klasy Informacja.xaml
-    /// </summary>
-    public partial class Informacja : Window
-    {
-        public Informacja()
-        {
+namespace GraKK {
+
+    public partial class Informacja : Window {
+
+        public Informacja() {
             InitializeComponent();
         }
 
-        private void Image_MouseUp(object sender, System.Windows.Input.MouseButtonEventArgs e)
-        {
+        private void Image_MouseUp(object sender, MouseButtonEventArgs e) => Zamknij();
+
+        private void Zamknij() {
             this.Hide();
         }
     }
