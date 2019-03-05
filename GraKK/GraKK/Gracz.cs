@@ -7,10 +7,10 @@ namespace GraKK {
         #region POLA KLASY / WŁAŚCIWOŚCI
         public event PropertyChangedEventHandler PropertyChanged;
         private byte ileZwyciestw;
-        public string nazwa { get; }
-        public bool aktywny { get; set; }
-        public byte liczba { get; }
-        public char znak { get; }
+        public string Nazwa { get; }
+        public bool Aktywny { get; set; }
+        public byte Liczba { get; }
+        public char Znak { get; }
         public byte IleZwyciestw {
             get { return ileZwyciestw; }
             set {
@@ -22,10 +22,10 @@ namespace GraKK {
 
         #region KONSTRUKTOR
         public Gracz(string imie, byte numer, char litera) {   
-            this.nazwa = imie;
-            this.ileZwyciestw = 0;
-            this.liczba = numer;
-            this.znak = litera;
+            Nazwa = imie;
+            ileZwyciestw = 0;
+            Liczba = numer;
+            Znak = litera;
         }
         #endregion
 

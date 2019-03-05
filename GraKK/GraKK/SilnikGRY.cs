@@ -52,11 +52,11 @@ namespace GraKK {
             bool war1 = Warunek1();
             bool war2 = Warunek2();
             if (war1) {
-                wygrany = _gracz1.nazwa;
+                wygrany = _gracz1.Nazwa;
                 _gracz1.IleZwyciestw += 1;
             }
             if (war2) {
-                wygrany = _gracz2.nazwa;
+                wygrany = _gracz2.Nazwa;
                 _gracz2.IleZwyciestw += 1;
             }
             if (ileRuchow == 9 && !war1 && !war2) wygrany = "Remis";
@@ -93,24 +93,24 @@ namespace GraKK {
         }
 
         public Gracz AktywnyGracz() {
-            return _gracz1.aktywny ? _gracz1 : _gracz2;
+            return _gracz1.Aktywny ? _gracz1 : _gracz2;
         }
 
         public void ZmianaGracza() {
-            _gracz1.aktywny = _gracz1.aktywny ? false : true;
-            _gracz2.aktywny = _gracz2.aktywny ? false : true;
+            _gracz1.Aktywny = _gracz1.Aktywny ? false : true;
+            _gracz2.Aktywny = _gracz2.Aktywny ? false : true;
         }
 
         private void ZmianaZaczynajacego() {
             if (ktoZaczyna==1) {
                 ktoZaczyna = 2;
-                _gracz1.aktywny = false;
-                _gracz2.aktywny = true;
+                _gracz1.Aktywny = false;
+                _gracz2.Aktywny = true;
             }
             else {
                 ktoZaczyna = 1;
-                _gracz1.aktywny = true;
-                _gracz2.aktywny = false;
+                _gracz1.Aktywny = true;
+                _gracz2.Aktywny = false;
             }
         }
         #endregion

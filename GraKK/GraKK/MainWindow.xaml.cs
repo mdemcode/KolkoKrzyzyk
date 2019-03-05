@@ -3,8 +3,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 
-namespace GraKK
-{
+namespace GraKK {
     public partial class MainWindow : Window {
         
         #region POLA KLASY
