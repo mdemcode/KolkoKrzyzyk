@@ -60,7 +60,7 @@ namespace GraKK {
             PanelGracz1.DataContext = gracz1;
             PanelGracz2.DataContext = gracz2;
             WyswietlAktywnego();
-            WyswietlInfo(string.Format("Rozpoczyna gracz: {0}", GraKK1.AktywnyGracz().nazwa));
+            WyswietlInfo(string.Format("Rozpoczyna gracz: {0}", GraKK1.AktywnyGracz().Nazwa));
         }
 
         private void NowaRunda(string wynik) {
@@ -68,7 +68,7 @@ namespace GraKK {
             else WyswietlInfo(string.Format("Wygrał gracz {0}", wynik));
             WyczyscPoleGry();
             WyswietlAktywnego();
-            WyswietlInfo(string.Format("Rozpoczyna gracz: {0}", GraKK1.AktywnyGracz().nazwa));
+            WyswietlInfo(string.Format("Rozpoczyna gracz: {0}", GraKK1.AktywnyGracz().Nazwa));
         }
 
         private void WyswietlInfo(string tekstInformacji) {
@@ -90,7 +90,7 @@ namespace GraKK {
         }
 
         private void WyswietlAktywnego() {
-            this.LabelAktywnyGracz.Content = string.Format("Aktualny gracz: {0}", GraKK1.AktywnyGracz().nazwa);
+            this.LabelAktywnyGracz.Content = string.Format("Aktualny gracz: {0}", GraKK1.AktywnyGracz().Nazwa);
         }
 
         private string NadajImie(string nr) {

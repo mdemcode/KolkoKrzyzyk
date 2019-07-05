@@ -26,13 +26,13 @@ namespace GraKK {
         public void LosujZaczynajacego() {
             Random losuj = new Random();
             if (losuj.NextDouble() > 0.5) {
-                _gracz1.aktywny = true;
-                _gracz2.aktywny = false;
+                _gracz1.Aktywny = true;
+                _gracz2.Aktywny = false;
                 ktoZaczyna = 1;
             }
             else {
-                _gracz1.aktywny = false;
-                _gracz2.aktywny = true;
+                _gracz1.Aktywny = false;
+                _gracz2.Aktywny = true;
                 ktoZaczyna = 2;
             }
         }
@@ -43,8 +43,8 @@ namespace GraKK {
                 return 'n';
             }
             ileRuchow++;
-            poleGry[nrPola] = AktywnyGracz().liczba;
-            return AktywnyGracz().znak;
+            poleGry[nrPola] = AktywnyGracz().Liczba;
+            return AktywnyGracz().Znak;
         }
 
         public string KoniecRundy() {
